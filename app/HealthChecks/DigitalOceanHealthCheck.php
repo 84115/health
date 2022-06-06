@@ -4,13 +4,13 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class SoftFocusHealthCheck extends HealthCheck
+class DigitalOceanHealthCheck extends HealthCheck
 {
-    protected $name = 'soft-focus-production';
+    protected $name = 'digital-ocean';
 
     public function status()
     {
-        $domain = "http://connells.james-ball.co.uk/api/developments/1";
+        $domain = "http://178.62.125.126";
         $curlInit = curl_init($domain);
 
         curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, 10);

@@ -4,9 +4,9 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class SoftFocusHealthCheck extends HealthCheck
+class SoftFocusDevHealthCheck extends HealthCheck
 {
-    protected $name = 'soft-focus-production';
+    protected $name = 'soft-focus-dev';
 
     public function status()
     {
