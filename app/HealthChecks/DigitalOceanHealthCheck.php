@@ -6,12 +6,12 @@ use UKFast\HealthCheck\HealthCheck;
 
 class DigitalOceanHealthCheck extends HealthCheck
 {
-    protected $name = 'digital-ocean';
+    public $name = 'digital-ocean';
+    public $domain = "http://178.62.125.126";
 
     public function status()
     {
-        $domain = "http://178.62.125.126";
-        $curlInit = curl_init($domain);
+        $curlInit = curl_init($this->domain);
 
         curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($curlInit, CURLOPT_HEADER, true);
@@ -25,7 +25,7 @@ class DigitalOceanHealthCheck extends HealthCheck
         if ($response) {
             return $this->okay();
         } else {
-            return $this->problem("Failed to connect to $domain");
+            return $this->problem("Failed to connect to $this->domain");
         }
     }
 }

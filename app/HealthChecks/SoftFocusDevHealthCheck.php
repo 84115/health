@@ -6,12 +6,12 @@ use UKFast\HealthCheck\HealthCheck;
 
 class SoftFocusDevHealthCheck extends HealthCheck
 {
-    protected $name = 'soft-focus-dev';
+    public $name = 'soft-focus-dev';
+    public $domain = "http://connells.james-ball.co.uk/api/developments/1";
 
     public function status()
     {
-        $domain = "http://connells.james-ball.co.uk/api/developments/1";
-        $curlInit = curl_init($domain);
+        $curlInit = curl_init($this->domain);
 
         curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($curlInit, CURLOPT_HEADER, true);
@@ -25,7 +25,7 @@ class SoftFocusDevHealthCheck extends HealthCheck
         if ($response) {
             return $this->okay();
         } else {
-            return $this->problem("Failed to connect to $domain");
+            return $this->problem("Failed to connect to $this->domain");
         }
     }
 }

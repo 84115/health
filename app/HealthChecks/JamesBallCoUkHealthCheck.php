@@ -6,12 +6,12 @@ use UKFast\HealthCheck\HealthCheck;
 
 class JamesBallCoUkHealthCheck extends HealthCheck
 {
-    protected $name = 'nitrous-networks';
+    public $name = 'nitrous-networks';
+    public $domain = "https://james-ball.co.uk";
 
     public function status()
     {
-        $domain = "https://james-ball.co.uk";
-        $curlInit = curl_init($domain);
+        $curlInit = curl_init($this->domain);
 
         curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($curlInit, CURLOPT_HEADER, true);
@@ -25,7 +25,7 @@ class JamesBallCoUkHealthCheck extends HealthCheck
         if ($response) {
             return $this->okay();
         } else {
-            return $this->problem("Failed to connect to $domain");
+            return $this->problem("Failed to connect to $this->domain");
         }
     }
 }
