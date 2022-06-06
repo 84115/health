@@ -22,6 +22,8 @@ return [
         UKFast\HealthCheck\Checks\LogHealthCheck::class,
         //UKFast\HealthCheck\Checks\DatabaseHealthCheck::class,
         UKFast\HealthCheck\Checks\EnvHealthCheck::class,
+
+        App\HealthChecks\SoftFocusHealthCheck::class,
     ],
 
     /*
