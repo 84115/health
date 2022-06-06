@@ -45,7 +45,7 @@ class TryAllHealthEnabledChecks extends Command
             'package' => env('PUSHNOTIFIERDE_API_PACKAGE'),
         ]);
 
-        $pushNotifier->login(env('PUSHNOTIFIERDE_USERNAME'), env('PUSHNOTIFIERDE_PASSWORD'), true);
+        $login = $pushNotifier->login(env('PUSHNOTIFIERDE_USERNAME'), env('PUSHNOTIFIERDE_PASSWORD'), true);
     
         $devices = $pushNotifier->getDevices();
 
