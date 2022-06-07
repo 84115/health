@@ -7,7 +7,7 @@ use UKFast\HealthCheck\HealthCheck;
 class SoftFocusHealthCheck extends HealthCheck
 {
     public $name = 'virtually-sold-production';
-    public $domain = "https://http://app.virtuallysold.io/api/ping";
+    public $domain = "https://app.virtuallysold.io/api/ping";
 
     public function status()
     {
