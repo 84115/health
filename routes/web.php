@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \UKFast\HealthCheck\Controllers\HealthCheckController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // $domain = 'http://health.james-ball.co.uk/health';
+    // $json = json_decode(file_get_contents($domain), true);
+    $controller = new HealthCheckController;
+    $response = $controller->__invoke(app());
+    $content = json_decode($response->content(), true);
+
+    $status = $content['status'];
+
+    unset($content['status']);
+
+    return view('welcome', [
+        'status' => $status,
+        'healths' => $content,
+    ]);
 });
