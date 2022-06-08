@@ -26,6 +26,7 @@ return [
         App\HealthChecks\DigitalOceanHealthCheck::class,
         App\HealthChecks\SoftFocusHealthCheck::class,
         App\HealthChecks\SoftFocusDevHealthCheck::class,
+        App\HealthChecks\EbayApiHealthCheck::class,
     ],
 
     /*
