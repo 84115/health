@@ -6,7 +6,7 @@ use UKFast\HealthCheck\HealthCheck;
 
 class DigitalOceanHealthCheck extends HealthCheck
 {
-    public $name = 'digital-ocean';
+    public $name = 'development';
     public $domain = "http://178.62.125.126";
 
     public function status()

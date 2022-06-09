@@ -4,10 +4,10 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class JamesBallCoUkHealthCheck extends HealthCheck
+class EbayStorageHealthCheck extends HealthCheck
 {
-    public $name = 'website';
-    public $domain = "https://james-ball.co.uk";
+    public $name = 'ebay-storage';
+    public $domain = "http://178.62.125.126";
 
     public function status()
     {

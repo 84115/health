@@ -20,13 +20,14 @@ return [
      */
     'checks' => [
         // UKFast\HealthCheck\Checks\LogHealthCheck::class,
-        //UKFast\HealthCheck\Checks\DatabaseHealthCheck::class,
+        // UKFast\HealthCheck\Checks\DatabaseHealthCheck::class,
         // UKFast\HealthCheck\Checks\EnvHealthCheck::class,
         App\HealthChecks\JamesBallCoUkHealthCheck::class,
         App\HealthChecks\DigitalOceanHealthCheck::class,
         App\HealthChecks\SoftFocusHealthCheck::class,
         App\HealthChecks\SoftFocusDevHealthCheck::class,
         App\HealthChecks\EbayApiHealthCheck::class,
+        App\HealthChecks\EbayStorageHealthCheck::class,
     ],
 
     /*
