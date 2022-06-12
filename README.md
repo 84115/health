@@ -1,64 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Middleware
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+You can register custom middleware to run on requests to the `/health` endpoint. You can add this to the middleware array in the `config/healthcheck.php` config file you created using the config above, as shown in the example below:
 
-## About Laravel
+```php
+/**
+ * A list of middleware to run on the health-check route
+ * It's recommended that you have a middleware that only
+ * allows admin consumers to see the endpoint.
+ *
+ * See UKFast\HealthCheck\BasicAuth for a one-size-fits all
+ * solution
+ */
+'middleware' => [
+    App\Http\Middleware\CustomMiddleware::class
+],
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Now your `CustomMiddleware` middleware will be ran on every request to the `/health` endpoint.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Out of the box, the health check package provides:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+ * BasicAuth - Requires that basic auth credentials be sent in order to see full status
+ * AddHeaders - Adds X-check-status headers to the response, so you can avoid having to parse JSON
 
-## Learning Laravel
+### Checks
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##### Scheduler Health Check
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The scheduler health check works by using a time limited cache key on your project every minute. You will need to register the
+CacheSchedulerRunning command to run every minute in your projects `Kernel.php`.
 
-## Laravel Sponsors
+You can customise the cache key and length of time in minutes before the scheduler not running will trigger an error.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```php
+$schedule->command(CacheSchedulerRunning::class)->everyMinute();
+```
 
-### Premium Partners
+## Creating your own health checks
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+It's very simple to create your own health checks.
 
-## Contributing
+In this example, we'll create a health check for Redis.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+You first need to create your health-check class, you can put this inside `App\HealthChecks`.
+In this case, the class would be `App\HealthChecks\RedisHealthCheck`
 
-## Code of Conduct
+Every health check needs to extend the base `HealthCheck` class and implement a `status()` method. You should also set the `$name` property for display purposes.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```php
+<?php
 
-## Security Vulnerabilities
+namespace App\HealthChecks;
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+use UKFast\HealthCheck\HealthCheck;
 
-## License
+class RedisHealthCheck extends HealthCheck
+{
+    protected $name = 'my-fancy-redis-check';
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    public function status()
+    {
+        return $this->okay();
+    }
+}
+```
+
+Now we've got our basic class setup, we can add it to the list of checks to run in our `config/healthcheck.php` file.
+
+Open up `config/healthcheck.php` and go to the `'checks'` array. Add your class to the list of those checks:
+
+```php
+'checks' => [
+    // ...
+    App\HealthChecks\RedisHealthCheck::class,
+]
+```
+
+If you hit the `/health` endpoint now, you'll see that there's a `my-fancy-redis-check` property and it should return `OK` for the status.
+
+We can now go about actually implementing the check properly.
+
+Go back to the `status()` method in the `RedisHealthCheck` class.
+
+Add in the following code:
+
+```php
+public function status()
+{
+    try {
+        Redis::ping();
+    } catch (Exception $e) {
+        return $this->problem('Failed to connect to redis', [
+            'exception' => $this->exceptionContext($e),
+        ]);
+    }
+
+    return $this->okay();
+}
+```
+
+You'll need to import the following at the top as well
+
+```php
+use Illuminate\Support\Facades\Redis;
+use UKFast\HealthCheck\HealthCheck;
+use Exception;
+```
+
+Finally, hit the `/health` endpoint, depending on if your app can actually hit Redis, you'll see the status of Redis. If it's still returning `OK` try changing `REDIS_HOST` to something that doesn't exist to trip the error.
+
+
+## Licence
+
+This project is licenced under the MIT Licence (MIT). Please see the [Licence](LICENCE) file for more information.
