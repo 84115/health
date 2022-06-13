@@ -27,6 +27,7 @@ return [
         App\HealthChecks\SoftFocusHealthCheck::class,
         App\HealthChecks\SoftFocusDevHealthCheck::class,
         App\HealthChecks\EbayApiHealthCheck::class,
+        App\HealthChecks\EbayDatabaseHealthCheck::class,
         App\HealthChecks\EbayStorageHealthCheck::class,
     ],
 

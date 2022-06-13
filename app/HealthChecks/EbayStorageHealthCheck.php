@@ -6,8 +6,8 @@ use UKFast\HealthCheck\HealthCheck;
 
 class EbayStorageHealthCheck extends HealthCheck
 {
-    public $name = 'ebay-storage';
-    public $domain = "http://178.62.125.126";
+    public $name = 'worth-what-storage';
+    public $domain = "http://api.worthwhat.com/ping";
 
     public function status()
     {
