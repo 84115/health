@@ -7,7 +7,7 @@ use UKFast\HealthCheck\HealthCheck;
 class EbayDatabaseHealthCheck extends HealthCheck
 {
     public $name = 'worth-what-database';
-    public $domain = "http://api.worthwhat.com/ping";
+    public $domain = "http://api.worthwhat.com/ping/database";
 
     public function status()
     {
