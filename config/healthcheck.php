@@ -29,6 +29,7 @@ return [
         App\HealthChecks\EbayApiHealthCheck::class,
         App\HealthChecks\EbayDatabaseHealthCheck::class,
         App\HealthChecks\EbayStorageHealthCheck::class,
+        App\HealthChecks\EbayStorageOauthCheck::class,
     ],
 
     /*
