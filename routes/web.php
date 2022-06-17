@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \UKFast\HealthCheck\Controllers\HealthCheckController;
+use GIDIX\PushNotifier\SDK\PushNotifier;
+use UKFast\HealthCheck\Controllers\HealthCheckController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,6 @@ use \UKFast\HealthCheck\Controllers\HealthCheckController;
 */
 
 Route::get('/', function () {
-    // $domain = 'http://health.james-ball.co.uk/health';
-    // $json = json_decode(file_get_contents($domain), true);
     $controller = new HealthCheckController;
     $response = $controller->__invoke(app());
     $content = json_decode($response->content(), true);
@@ -29,4 +28,22 @@ Route::get('/', function () {
         'status' => $status,
         'healths' => $content,
     ]);
+});
+
+// /notify/james-ball.co.uk/Debug/hello%20world
+Route::get('/notify/{domain}/{source}/{message}', function ($domain, $source, $message) {
+    $source = urldecode($source);
+    $message = urldecode($message);
+    $domain = "https://$domain";
+
+    $pushNotifier = new PushNotifier([
+        'api_token' => env('PUSHNOTIFIERDE_API_TOKEN'),
+        'package' => env('PUSHNOTIFIERDE_API_PACKAGE'),
+    ]);
+
+    $pushNotifier->login(env('PUSHNOTIFIERDE_USERNAME'), env('PUSHNOTIFIERDE_PASSWORD'), true);
+
+    $devices = $pushNotifier->getDevices();
+
+    $pushNotifier->sendNotification($devices, "$source - {$message}", $domain);
 });
