@@ -19,19 +19,17 @@ return [
      * of the service
      */
     'checks' => [
-        // UKFast\HealthCheck\Checks\LogHealthCheck::class,
-        // UKFast\HealthCheck\Checks\DatabaseHealthCheck::class,
-        // UKFast\HealthCheck\Checks\EnvHealthCheck::class,
         App\HealthChecks\JamesBallCoUkHealthCheck::class,
         App\HealthChecks\DigitalOceanHealthCheck::class,
         App\HealthChecks\SoftFocusHealthCheck::class,
+        App\HealthChecks\SoftFocusStagingHealthCheck::class,
         App\HealthChecks\SoftFocusDevHealthCheck::class,
         App\HealthChecks\EbaySiteHealthCheck::class,
-        App\HealthChecks\EbayStagingSiteHealthCheck::class,
         App\HealthChecks\EbayApiHealthCheck::class,
-        App\HealthChecks\EbayDatabaseHealthCheck::class,
         App\HealthChecks\EbayStorageHealthCheck::class,
         App\HealthChecks\EbayStorageOauthCheck::class,
+        App\HealthChecks\EbayStagingSiteHealthCheck::class,
+        App\HealthChecks\EbayDatabaseHealthCheck::class,
     ],
 
     /*
