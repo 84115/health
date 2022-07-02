@@ -20,14 +20,15 @@ use UKFast\HealthCheck\Controllers\HealthCheckController;
 Route::get('/', function () {
     $controller = new HealthCheckController;
     $response = $controller->__invoke(app());
+    $content = json_decode($response->content(), true);
 
-    if (Cache::has('content')) {
-        $content = Cache::get('content');
-    } else {
-        $content = json_decode($response->content(), true);
+    // if (Cache::has('content')) {
+    //     $content = Cache::get('content');
+    // } else {
+    //     $content = json_decode($response->content(), true);
 
-        Cache::forever('content', $content);
-    }
+    //     Cache::forever('content', $content);
+    // }
 
     $status = $content['status'];
 
