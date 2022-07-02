@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use GIDIX\PushNotifier\SDK\PushNotifier;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 use UKFast\HealthCheck\Controllers\HealthCheckController;
 
 /*
@@ -18,15 +20,31 @@ use UKFast\HealthCheck\Controllers\HealthCheckController;
 Route::get('/', function () {
     $controller = new HealthCheckController;
     $response = $controller->__invoke(app());
-    $content = json_decode($response->content(), true);
+
+    if (Cache::has('content')) {
+        $content = Cache::get('content');
+    } else {
+        $content = json_decode($response->content(), true);
+
+        Cache::forever('content', $content);
+    }
 
     $status = $content['status'];
 
     unset($content['status']);
 
+    $content = collect($content)
+        ->map(fn ($value, $key) => [
+            'label' => $key,
+            'status' => $value['status'],
+        ]) // Do this since groupBy removes string indexes
+        ->groupBy(fn ($value, $key) => Str::before($key, '-'));
+
+    // dd($content);
+
     return view('welcome', [
         'status' => $status,
-        'healths' => $content,
+        'groups' => $content,
     ]);
 });
 
