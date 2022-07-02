@@ -19,8 +19,8 @@ return [
      * of the service
      */
     'checks' => [
-        App\HealthChecks\JamesBallCoUkHealthCheck::class,
-        App\HealthChecks\DigitalOceanHealthCheck::class,
+        App\HealthChecks\JamesBallSiteHealthCheck::class,
+        App\HealthChecks\JamesBallServerHealthCheck::class,
         App\HealthChecks\VirtuallySoldHealthCheck::class,
         App\HealthChecks\VirtuallySoldStagingHealthCheck::class,
         App\HealthChecks\VirtuallySoldDevHealthCheck::class,

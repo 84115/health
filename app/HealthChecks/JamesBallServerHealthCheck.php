@@ -4,10 +4,10 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class JamesBallCoUkHealthCheck extends HealthCheck
+class JamesBallServerHealthCheck extends HealthCheck
 {
-    public $name = 'website';
-    public $domain = "https://james-ball.co.uk";
+    public $name = 'jb-server';
+    public $domain = "http://dev.james-ball.co.uk/ping";
 
     public function status()
     {
