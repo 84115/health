@@ -4,7 +4,7 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class SoftFocusHealthCheck extends HealthCheck
+class VirtuallySoldHealthCheck extends HealthCheck
 {
     public $name = 'virtually-sold-production';
     public $domain = "https://app.virtuallysold.io/api/ping";

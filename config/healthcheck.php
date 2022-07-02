@@ -21,9 +21,9 @@ return [
     'checks' => [
         App\HealthChecks\JamesBallCoUkHealthCheck::class,
         App\HealthChecks\DigitalOceanHealthCheck::class,
-        App\HealthChecks\SoftFocusHealthCheck::class,
-        App\HealthChecks\SoftFocusStagingHealthCheck::class,
-        App\HealthChecks\SoftFocusDevHealthCheck::class,
+        App\HealthChecks\VirtuallySoldHealthCheck::class,
+        App\HealthChecks\VirtuallySoldStagingHealthCheck::class,
+        App\HealthChecks\VirtuallySoldDevHealthCheck::class,
         App\HealthChecks\WorthWhatSiteHealthCheck::class,
         App\HealthChecks\WorthWhatApiHealthCheck::class,
         App\HealthChecks\WorthWhatStorageHealthCheck::class,
