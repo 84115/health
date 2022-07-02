@@ -4,10 +4,10 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class EbayStagingSiteHealthCheck extends HealthCheck
+class WorthWhatApiHealthCheck extends HealthCheck
 {
-    public $name = 'worth-what-staging-site';
-    public $domain = "http://staging.worthwhat.com/ping";
+    public $name = 'worth-what-api';
+    public $domain = "http://app.worthwhat.com/api/ping";
 
     public function status()
     {

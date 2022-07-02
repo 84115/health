@@ -24,12 +24,12 @@ return [
         App\HealthChecks\SoftFocusHealthCheck::class,
         App\HealthChecks\SoftFocusStagingHealthCheck::class,
         App\HealthChecks\SoftFocusDevHealthCheck::class,
-        App\HealthChecks\EbaySiteHealthCheck::class,
-        App\HealthChecks\EbayApiHealthCheck::class,
-        App\HealthChecks\EbayStorageHealthCheck::class,
-        App\HealthChecks\EbayStorageOauthCheck::class,
-        App\HealthChecks\EbayStagingSiteHealthCheck::class,
-        App\HealthChecks\EbayDatabaseHealthCheck::class,
+        App\HealthChecks\WorthWhatSiteHealthCheck::class,
+        App\HealthChecks\WorthWhatApiHealthCheck::class,
+        App\HealthChecks\WorthWhatStorageHealthCheck::class,
+        App\HealthChecks\WorthWhatStorageOauthCheck::class,
+        App\HealthChecks\WorthWhatStagingSiteHealthCheck::class,
+        App\HealthChecks\WorthWhatDatabaseHealthCheck::class,
     ],
 
     /*

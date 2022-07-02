@@ -4,7 +4,7 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class EbayStorageOauthCheck extends HealthCheck
+class WorthWhatStorageOauthCheck extends HealthCheck
 {
     public $name = 'worth-what-oauth';
     public $domain = "http://oauth.worthwhat.com/ping";
