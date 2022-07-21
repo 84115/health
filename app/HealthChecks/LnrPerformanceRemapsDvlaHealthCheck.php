@@ -4,10 +4,10 @@ namespace App\HealthChecks;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class LnrPerformanceRemapsHealthCheck extends HealthCheck
+class LnrPerformanceRemapsDvlaHealthCheck extends HealthCheck
 {
-    public $name = "lnr-performance-remaps";
-    public $domain = "https://www.lnrperformanceremaps.co.uk";
+    public $name = "lnr-performance-remaps-dvla";
+    public $domain = "https://www.lnrperformanceremaps.co.uk/dvla/AA19AAA";
 
     public function status()
     {
