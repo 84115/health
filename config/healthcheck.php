@@ -21,6 +21,7 @@ return [
     'checks' => [
         App\HealthChecks\JamesBallSiteHealthCheck::class,
         App\HealthChecks\JamesBallServerHealthCheck::class,
+        App\HealthChecks\EverythingDailyHealthCheck::class,
         App\HealthChecks\LnrPerformanceRemapsSiteHealthCheck::class,
         App\HealthChecks\LnrPerformanceRemapsDvlaHealthCheck::class,
         App\HealthChecks\VirtuallySoldHealthCheck::class,
