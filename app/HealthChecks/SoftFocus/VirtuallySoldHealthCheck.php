@@ -1,6 +1,6 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\SoftFocus;
 
 use UKFast\HealthCheck\HealthCheck;
 

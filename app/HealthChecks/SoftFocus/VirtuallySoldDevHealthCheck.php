@@ -1,13 +1,13 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\SoftFocus;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class VirtuallySoldStagingHealthCheck extends HealthCheck
+class VirtuallySoldDevHealthCheck extends HealthCheck
 {
-    public $name = 'virtually-sold-staging';
-    public $domain = "https://staging.virtuallysold.io/api/ping";
+    public $name = 'virtually-sold-dev';
+    public $domain = "http://connells.james-ball.co.uk/api/ping";
 
     public function status()
     {
