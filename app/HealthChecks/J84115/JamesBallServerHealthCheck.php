@@ -1,13 +1,13 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\J84115;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class LnrPerformanceRemapsSiteHealthCheck extends HealthCheck
+class JamesBallServerHealthCheck extends HealthCheck
 {
-    public $name = "lnr-performance-remaps-site";
-    public $domain = "https://www.lnrperformanceremaps.co.uk";
+    public $name = 'jb-server';
+    public $domain = "http://dev.james-ball.co.uk/ping";
 
     public function status()
     {

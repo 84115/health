@@ -1,13 +1,13 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\LNR;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class JamesBallSiteHealthCheck extends HealthCheck
+class LnrPerformanceRemapsDvlaHealthCheck extends HealthCheck
 {
-    public $name = 'jb-site';
-    public $domain = "https://james-ball.co.uk/ping";
+    public $name = "lnr-performance-remaps-dvla";
+    public $domain = "https://www.lnrperformanceremaps.co.uk/dvla/AA19AAA";
 
     public function status()
     {

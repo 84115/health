@@ -19,11 +19,11 @@ return [
      * of the service
      */
     'checks' => [
-        App\HealthChecks\JamesBallSiteHealthCheck::class,
-        App\HealthChecks\JamesBallServerHealthCheck::class,
-        App\HealthChecks\EverythingDailyHealthCheck::class,
-        App\HealthChecks\LnrPerformanceRemapsSiteHealthCheck::class,
-        App\HealthChecks\LnrPerformanceRemapsDvlaHealthCheck::class,
+        App\HealthChecks\J84115\JamesBallSiteHealthCheck::class,
+        App\HealthChecks\J84115\JamesBallServerHealthCheck::class,
+        App\HealthChecks\J84115\EverythingDailyHealthCheck::class,
+        App\HealthChecks\LNR\LnrPerformanceRemapsSiteHealthCheck::class,
+        App\HealthChecks\LNR\LnrPerformanceRemapsDvlaHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldStagingHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldDevHealthCheck::class,
