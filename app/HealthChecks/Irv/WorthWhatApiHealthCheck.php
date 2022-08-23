@@ -1,6 +1,6 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\Irv;
 
 use UKFast\HealthCheck\HealthCheck;
 

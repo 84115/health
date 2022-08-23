@@ -1,13 +1,13 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\Irv;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class WorthWhatStorageHealthCheck extends HealthCheck
+class WorthWhatDatabaseHealthCheck extends HealthCheck
 {
-    public $name = 'worth-what-storage';
-    public $domain = "http://app.worthwhat.com/api/ping/storage";
+    public $name = 'worth-what-database';
+    public $domain = "http://app.worthwhat.com/api/ping/database";
 
     public function status()
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\HealthChecks;
+namespace App\HealthChecks\Irv;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class WorthWhatStagingSiteHealthCheck extends HealthCheck
+class WorthWhatStorageOauthCheck extends HealthCheck
 {
-    public $name = 'worth-what-staging-site';
-    public $domain = "http://staging.worthwhat.com";
+    public $name = 'worth-what-oauth';
+    public $domain = "http://oauth.worthwhat.com/ping";
 
     public function status()
     {

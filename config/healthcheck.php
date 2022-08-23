@@ -27,12 +27,12 @@ return [
         App\HealthChecks\VirtuallySoldHealthCheck::class,
         App\HealthChecks\VirtuallySoldStagingHealthCheck::class,
         App\HealthChecks\VirtuallySoldDevHealthCheck::class,
-        App\HealthChecks\WorthWhatSiteHealthCheck::class,
-        App\HealthChecks\WorthWhatApiHealthCheck::class,
-        App\HealthChecks\WorthWhatStorageHealthCheck::class,
-        App\HealthChecks\WorthWhatStorageOauthCheck::class,
-        App\HealthChecks\WorthWhatStagingSiteHealthCheck::class,
-        App\HealthChecks\WorthWhatDatabaseHealthCheck::class,
+        App\HealthChecks\Irv\WorthWhatSiteHealthCheck::class,
+        App\HealthChecks\Irv\WorthWhatApiHealthCheck::class,
+        App\HealthChecks\Irv\WorthWhatStorageHealthCheck::class,
+        App\HealthChecks\Irv\WorthWhatStorageOauthCheck::class,
+        App\HealthChecks\Irv\WorthWhatStagingSiteHealthCheck::class,
+        App\HealthChecks\Irv\WorthWhatDatabaseHealthCheck::class,
     ],
 
     /*
