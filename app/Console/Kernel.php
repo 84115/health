@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('health:try-all-enabled')->everyThirtyMinutes();
+        $schedule->call('health:try-all-enabled')->everyFifteenMinutes();
     }
 
     /**
