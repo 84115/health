@@ -2,9 +2,9 @@
 
 namespace App\HealthChecks\J84115;
 
-use App\HealthChecks\PingHealthCheck;
+use App\HealthChecks\PingPongHealthCheck;
 
-class EverythingDailyHealthCheck extends PingHealthCheck
+class EverythingDailyHealthCheck extends PingPongHealthCheck
 {
     public $name = 'jb-everything-daily';
     public $domain = "https://everything-daily.co.uk/ping";
