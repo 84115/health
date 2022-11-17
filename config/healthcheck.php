@@ -36,6 +36,7 @@ return [
         App\HealthChecks\Irv\WorthWhat\StorageOauthCheck::class,
         // App\HealthChecks\Irv\WorthWhat\StagingSiteHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\DatabaseHealthCheck::class,
+        App\HealthChecks\FindMyCoach\FindMyCoachHealthCheck::class,
     ],
 
     /*
