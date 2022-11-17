@@ -25,6 +25,8 @@ return [
         App\HealthChecks\LNR\LnrPerformanceRemapsSiteHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaUkHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaIeHealthCheck::class,
+        App\HealthChecks\LNR\LnrPerformanceRemapsDvlaApiHealthCheck::class,
+        App\HealthChecks\LNR\LnrPerformanceRemapsDvlaSlaveHealthCheck::class,
         // App\HealthChecks\SoftFocus\VirtuallySoldHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldStagingHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldDevHealthCheck::class,
