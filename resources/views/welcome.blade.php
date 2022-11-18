@@ -73,7 +73,7 @@
             .w-8{width:2rem}
             .w-auto{width:auto}
             .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
-            .grid-cols-4{grid-template-columns: repeat(4, minmax(0, 1fr))}
+            .grid-cols-5{grid-template-columns: repeat(5, minmax(0, 1fr))}
 
             @media (min-width:640px){
                 .sm\:rounded-lg{border-radius:.5rem}
@@ -108,7 +108,7 @@
             }
 
             @media (max-width:768px) {
-                .grid-cols-4 {
+                .grid-cols-5 {
                     grid-template-columns: initial;
                 }
             }
@@ -127,7 +127,7 @@
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div class="mx-auto sm:px-6 lg:px-8">
                 {{--  --}}
-                <div class="grid grid-cols-4" style="column-gap: 4rem;">
+                <div class="grid grid-cols-5" style="column-gap: 3.5rem;">
                     @foreach ($groups as $healths)
                         <div>
                             @foreach ($healths as $name => $health)
