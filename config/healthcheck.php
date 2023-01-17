@@ -22,21 +22,27 @@ return [
         App\HealthChecks\J84115\JamesBallSiteHealthCheck::class,
         App\HealthChecks\J84115\JamesBallServerHealthCheck::class,
         App\HealthChecks\J84115\EverythingDailyHealthCheck::class,
+
         App\HealthChecks\LNR\LnrPerformanceRemapsSiteHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaUkHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaIeHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaApiHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaSlaveHealthCheck::class,
+
         // App\HealthChecks\SoftFocus\VirtuallySoldHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldStagingHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldDevHealthCheck::class,
+
         App\HealthChecks\Irv\WorthWhat\SiteHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\ApiHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\StorageHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\StorageOauthCheck::class,
         // App\HealthChecks\Irv\WorthWhat\StagingSiteHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\DatabaseHealthCheck::class,
+
         App\HealthChecks\FindMyCoach\FindMyCoachHealthCheck::class,
+
+        App\HealthChecks\Malloney\ObookoHealthCheck::class,
     ],
 
     /*
