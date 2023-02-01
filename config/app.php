@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         UKFast\HealthCheck\HealthCheckServiceProvider::class,
+        J84115\HealthNotification\HealthNotificationServiceProvider::class,
 
         /*
          * Application Service Providers...

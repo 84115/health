@@ -66,3 +66,11 @@ Route::get('/notify/{domain}/{source}/{message}', function ($domain, $source, $m
 
     $pushNotifier->sendNotification($devices, "$source - {$message}", $domain);
 });
+
+Route::get('test', function() {
+    if (function_exists('jb_notification')) {
+        return jb_notification("HEALTH", "TEST");
+    }
+
+    return "TEST";
+});
