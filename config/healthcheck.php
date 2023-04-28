@@ -43,6 +43,8 @@ return [
         App\HealthChecks\FindMyCoach\FindMyCoachHealthCheck::class,
 
         App\HealthChecks\Malloney\ObookoHealthCheck::class,
+
+        App\HealthChecks\HotBoxStudios\HotBoxStudiosStagingHealthCheck::class,
     ],
 
     /*
