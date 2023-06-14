@@ -28,6 +28,7 @@ return [
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaIeHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaApiHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaSlaveHealthCheck::class,
+        App\HealthChecks\LNR\LnrPerformanceSuppliesHealthCheck::class,
 
         // App\HealthChecks\SoftFocus\VirtuallySoldHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldStagingHealthCheck::class,
@@ -37,7 +38,6 @@ return [
         App\HealthChecks\Irv\WorthWhat\ApiHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\StorageHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\StorageOauthCheck::class,
-        // App\HealthChecks\Irv\WorthWhat\StagingSiteHealthCheck::class,
         App\HealthChecks\Irv\WorthWhat\DatabaseHealthCheck::class,
 
         App\HealthChecks\FindMyCoach\FindMyCoachHealthCheck::class,
