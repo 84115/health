@@ -4,9 +4,9 @@ namespace App\HealthChecks\HotBoxStudios;
 
 use UKFast\HealthCheck\HealthCheck;
 
-class HotBoxStudiosStagingHealthCheck extends HealthCheck
+class HotBoxStudiosProjectAlphaHealthCheck extends HealthCheck
 {
-    public $name = 'hotbox-staging';
+    public $name = 'hotbox-project-alpha';
     public $domain = "https://hotbox.james-ball.co.uk";
 
     public function status()

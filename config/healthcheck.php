@@ -44,7 +44,7 @@ return [
 
         App\HealthChecks\Malloney\ObookoHealthCheck::class,
 
-        App\HealthChecks\HotBoxStudios\HotBoxStudiosStagingHealthCheck::class,
+        App\HealthChecks\HotBoxStudios\HotBoxStudiosProjectAlphaHealthCheck::class,
     ],
 
     /*
