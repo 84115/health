@@ -6,7 +6,7 @@ use UKFast\HealthCheck\HealthCheck;
 
 class LnrPerformanceSuppliesHealthCheck extends HealthCheck
 {
-    public $name = "lnr-performance-supplies-site";
+    public $name = "lnrps-performance-supplies-site";
     public $domain = "https://lnrperformancesupplies.co.uk";
 
     public function status()

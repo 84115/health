@@ -6,7 +6,7 @@ use UKFast\HealthCheck\HealthCheck;
 
 class LnrPerformanceRemapsDvlaSlaveHealthCheck extends HealthCheck
 {
-    public $name = "lnr-performance-remaps-slave";
+    public $name = "lnrps-performance-remaps-slave";
     public $domain = "http://slave.lnrperformanceremaps.co.uk";
 
     public function status()
