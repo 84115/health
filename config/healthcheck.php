@@ -30,7 +30,8 @@ return [
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaSlaveHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceSuppliesHealthCheck::class,
 
-        // App\HealthChecks\SoftFocus\VirtuallySoldHealthCheck::class,
+        App\HealthChecks\SoftFocus\VirtuallySoldLandingCheck::class,
+        App\HealthChecks\SoftFocus\VirtuallySoldHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldStagingHealthCheck::class,
         App\HealthChecks\SoftFocus\VirtuallySoldDevHealthCheck::class,
 
