@@ -47,6 +47,8 @@ return [
 
         App\HealthChecks\HotBoxStudios\HotBoxStudiosProjectAlphaHealthCheck::class,
         App\HealthChecks\HotBoxStudios\HotBoxStudiosProjectBetaHealthCheck::class,
+
+        App\HealthChecks\Greycon\GreyconSiteHealthCheck::class,
     ],
 
     /*
