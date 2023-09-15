@@ -2,9 +2,9 @@
 
 namespace App\HealthChecks\SoftFocus;
 
-use App\HealthChecks\ArchivedHealthCheck;
+use App\HealthChecks\PingHealthCheck;
 
-class VirtuallySoldStagingHealthCheck extends ArchivedHealthCheck
+class VirtuallySoldStagingHealthCheck extends PingHealthCheck
 {
     public $name = 'virtually-sold-staging';
     public $domain = "https://staging.virtuallysold.io/api/ping";

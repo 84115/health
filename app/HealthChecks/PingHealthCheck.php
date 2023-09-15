@@ -2,6 +2,7 @@
 
 namespace App\HealthChecks;
 
+use Illuminate\Support\Facades\Http;
 use UKFast\HealthCheck\HealthCheck as CoreHealthCheck;
 
 class PingHealthCheck extends CoreHealthCheck
@@ -11,20 +12,9 @@ class PingHealthCheck extends CoreHealthCheck
 
     public function status()
     {
-        $curlInit = curl_init($this->domain);
+        $response = Http::get($this->domain);
 
-        curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, 10);
-        curl_setopt($curlInit, CURLOPT_HEADER, true);
-        curl_setopt($curlInit, CURLOPT_NOBODY, true);
-        curl_setopt($curlInit, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($curlInit);
-
-        curl_close($curlInit);
-
-        $info = curl_getinfo($curlInit);
-
-        if ($info['http_code'] === 200) {
+        if ($response->successful()) {
             return $this->okay();
         } else {
             return $this->problem("Failed to connect to $this->domain");
