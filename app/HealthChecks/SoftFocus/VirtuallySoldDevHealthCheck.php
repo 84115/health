@@ -2,9 +2,9 @@
 
 namespace App\HealthChecks\SoftFocus;
 
-use App\HealthChecks\PingPongHealthCheck;
+use App\HealthChecks\ArchivedHealthCheck;
 
-class VirtuallySoldDevHealthCheck extends PingPongHealthCheck
+class VirtuallySoldDevHealthCheck extends ArchivedHealthCheck
 {
     public $name = 'virtually-sold-dev';
     public $domain = "http://connells.james-ball.co.uk/api/ping";

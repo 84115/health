@@ -2,9 +2,9 @@
 
 namespace App\HealthChecks\Irv\WorthWhat;
 
-use App\HealthChecks\PingPongHealthCheck;
+use App\HealthChecks\ArchivedHealthCheck;
 
-class ApiHealthCheck extends PingPongHealthCheck
+class ApiHealthCheck extends ArchivedHealthCheck
 {
     public $name = 'worth-what-api';
     public $domain = "http://app.worthwhat.com/api/ping";
