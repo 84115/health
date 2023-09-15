@@ -1,13 +1,13 @@
 <?php
 
-namespace App\HealthChecks\Irv\Pending;
+namespace App\HealthChecks\WorthWhat;
 
 use UKFast\HealthCheck\HealthCheck;
 
 class StagingSiteHealthCheck extends HealthCheck
 {
-    public $name = 'pending-staging-site';
-    public $domain = "http://staging.____.com";
+    public $name = 'worth-what-staging-site';
+    public $domain = "http://staging.worthwhat.com";
 
     public function status()
     {

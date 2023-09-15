@@ -1,6 +1,6 @@
 <?php
 
-namespace App\HealthChecks\Irv\WorthWhat;
+namespace App\HealthChecks\WorthWhat;
 
 use App\HealthChecks\ArchivedHealthCheck;
 
