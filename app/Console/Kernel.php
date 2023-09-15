@@ -5,6 +5,7 @@ namespace App\Console;
 use App\Console\Commands\TryAllHealthEnabledChecks;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use UKFast\HealthCheck\Commands\CacheSchedulerRunning;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,8 +17,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->call('health:try-all-enabled')->everyFifteenMinutes();
-        $schedule->call('health:try-all-enabled')->daily();
+        $schedule->command(CacheSchedulerRunning::class)->everyTwoHours();
+
+        $schedule->command(TryAllHealthEnabledChecks::class)->everyTwoHours();
     }
 
     /**
