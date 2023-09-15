@@ -22,6 +22,7 @@ return [
         App\HealthChecks\J84115\JamesBallSiteHealthCheck::class,
         App\HealthChecks\J84115\JamesBallServerHealthCheck::class,
         App\HealthChecks\J84115\EverythingDailyHealthCheck::class,
+        App\HealthChecks\J84115\SkateableDotUkHealthCheck::class,
 
         App\HealthChecks\LNR\LnrPerformanceRemapsSiteHealthCheck::class,
         App\HealthChecks\LNR\LnrPerformanceRemapsDvlaUkHealthCheck::class,
